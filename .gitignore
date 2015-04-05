@@ -1,0 +1,28 @@
+# SublimeText
+*.sublime-workspace
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IntelliJ IDEA Platform
+.idea/
+
+# App specific
+*.log
+node_modules/
+bower_components/
+dist/
+.tmpgulpfile.coffee
+tmp/
