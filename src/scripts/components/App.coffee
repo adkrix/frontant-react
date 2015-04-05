@@ -4,21 +4,34 @@ cx = React.addons.classSet
 Masthead = require("./Masthead.coffee")
 HeartbeatAnimationGroup = require("./HeartbeatAnimationGroup.coffee")
 
+poweredBy = [
+  logoURL: require('images/gulp-logo.png')
+,
+  logoURL: require('images/webpack-logo.png')
+,
+  logoURL: require('images/react-logo.png')
+,
+  logoURL: require('images/sass-logo.png')
+,
+  logoURL: require('images/twbs-logo.png')
+]
+
+renderPoweredByItems = (items) ->
+  n = items.length
+  items.map (item, i) ->
+    `(
+      <HeartbeatAnimationGroup phase={200 * ((i + n / 2) % n)}>
+        <img className='img-responsive' src={item.logoURL} key={item.logoURL} />
+      </HeartbeatAnimationGroup>
+    )`
+
 Tag = React.createClass
   render: ->
     `(
-      <span className='label label-primary'>{this.props.children}</span>
+    <span className='label label-primary'>{this.props.children}</span>
     )`
 
-poweredBy = [
-  { logoURL: require('images/gulp-logo.png')    }
-  { logoURL: require('images/webpack-logo.png') }
-  { logoURL: require('images/react-logo.png')   }
-  { logoURL: require('images/sass-logo.png')    }
-  { logoURL: require('images/twbs-logo.png')    }
-]
-
-StarterApp = React.createClass
+App = React.createClass
   render: ->
     `(
       <div className='main text-center'>
@@ -28,7 +41,7 @@ StarterApp = React.createClass
             Gulp is used for orchestrating the build process, and Webpack is used to compile and package assets.
           </p>
           <p>
-            <a className='btn btn-primary btn-lg' href={this.props.githubUrl}>
+            <a className="btn btn-primary btn-lg" href={this.props.githubUrl}>
               This template on Github <i className='fa fa-arrow-right' />
             </a>
           </p>
@@ -61,15 +74,4 @@ StarterApp = React.createClass
       </div>
     )`
 
-renderPoweredByItems = (items) ->
-  n = items.length
-  items.map (item, i) ->
-    imageURL = item.logoURL
-    `(
-      <HeartbeatAnimationGroup phase={200 * ((i + n / 2) % n)}>
-      <img className='img-responsive' src={imageURL} key={imageURL} />
-      </HeartbeatAnimationGroup>
-    )`
-
-
-module.exports = StarterApp
+module.exports = App

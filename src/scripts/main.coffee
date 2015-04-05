@@ -8,8 +8,7 @@ else
 
 require("script!jquery/dist/jquery.js")
 
-StarterApp = require('./components/StarterApp.coffee')
+App = require('./components/App.coffee')
 
-githubUrl = 'https://github.com/arthur-creek/frontant-react'
-React.renderComponent(`<StarterApp githubUrl={githubUrl}/>`, document.getElementById('app'))
+React.renderComponent(`<App />`, document.getElementById('app'))
 
